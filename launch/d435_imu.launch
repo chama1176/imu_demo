@@ -1,0 +1,13 @@
+<launch>
+
+    <include file="$(find realsense2_camera)/launch/rs_rgbd.launch">
+        <arg name="enable_pointcloud" value="true"/>
+        <arg name="align_depth" value="true"/>
+        <arg name="depth_registered_processing" value="true"/>
+    </include>
+
+    <node pkg="imu_demo" type="imu_d_talker" name="imu_d_talker">
+        <remap from="/imu/data" to="/imu"/>
+    </node>
+
+</launch>
